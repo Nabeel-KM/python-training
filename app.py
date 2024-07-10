@@ -26,13 +26,17 @@ def choice_calculation(choice,days):
         print("Select a valid option")
 
 def validation(number_of_days):
-    days = int(number_of_days)
-    if (days > 0):
-        return True
-    elif (days == 0):
-        print("Enter a valid number of days")
-        return False
-    else:
+    try:
+        days = int(number_of_days)
+        if (days > 0):
+            return True
+        elif (days == 0):
+            print("Enter a valid number of days")
+            return False
+        else:
+            print("Enter a valid number of days")
+            return False
+    except ValueError:
         print("Enter a valid number of days")
         return False
     
@@ -40,20 +44,28 @@ toContinue = True
 
 while (toContinue):
     
+    days_input = input("\nNo of days: ").split()
+    choice = int(input("1. Seconds \n2. Minutes \n3. Hours \n\nEnter the choice: "))
 
-    days = input("\nNo of days : ")
-    print(type(days.split()))
-    print(days.split())
-    choice = int(input("1. Seconds \n2. Minutes \n3. Hours \n\nEnter the choice : "))
-
-    for number_of_days in days.split():
-        number_of_days = int(number_of_days)
-        input_validated = validation(number_of_days)
-        if input_validated:
-            choice_calculation(choice,number_of_days)
+    for number_of_days in days_input:
+        if validation(number_of_days):
+            choice_calculation(choice, int(number_of_days))
         else:
             print("Wrong Input")
-            continue
+
+    # days = input("\nNo of days : ")
+    # print(type(days.split()))
+    # print(days.split())
+    # choice = int(input("1. Seconds \n2. Minutes \n3. Hours \n\nEnter the choice : "))
+
+    # for number_of_days in days.split():
+    #     number_of_days = int(number_of_days)
+    #     input_validated = validation(number_of_days)
+    #     if input_validated:
+    #         choice_calculation(choice,number_of_days)
+    #     else:
+    #         print("Wrong Input")
+    #         continue
 
     
 
