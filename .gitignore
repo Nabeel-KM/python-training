@@ -1,0 +1,8 @@
+.venv/
+.vscode/
+inventory_with_total_value.xlsx
+inventory.xlsx
+./flask/venv/
+/.venv
+terraform/
+flask/venv/
